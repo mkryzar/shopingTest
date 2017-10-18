@@ -39,13 +39,27 @@ public class PodsumowanieZakupowTest {
 		
 		
 		
-		ZakupyUtil.sprawdzanieCenyKupionejSukienki(driver);
-		ZakupyUtil.total(driver);
+//		ZakupyUtil.sprawdzanieCenyKupionejSukienki(driver);
+//		ZakupyUtil.total(driver);
 
 		assertEquals(ZakupyUtil.policzSumeProduktowWKoszyku(driver),
 				ZakupyUtil.total(driver),2);
 
 		
 	}
+	
+	@Test
+	public void sprawdzCzyPoZalogowaniuZakupieSukienkiOrazDodaniuKolejnejTakiejSamejCenaSieZgadza() {
+		ZakupyUtil.logowanie(driver);
+		ZakupyUtil.wybieranieZakladkiWomen(driver);
+		ZakupyUtil.pobranieElementowSize(driver);
+		ZakupyUtil.wybieranieRozmiaruS(driver);
+		ZakupyUtil.waitForAjax(driver);
+		ZakupyUtil.wybieranieSukienki(driver, i);
+		ZakupyUtil.waitForAjax(driver);
+		ZakupyUtil.wybieranieAddToCard(driver);
+		ZakupyUtil.waitForAjax(driver);
+		ZakupyUtil.wybieranieProceed(driver);
+		ZakupyUtil.waitForAjax(driver);
 
 }
